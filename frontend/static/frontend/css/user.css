@@ -1,0 +1,13 @@
+.signup-main {
+    width: 300px;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-form {
+    display: flex;
+    flex-direction: column;
+}

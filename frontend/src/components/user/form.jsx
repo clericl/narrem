@@ -5,7 +5,7 @@ const Form = props => {
     const [password, setPassword] = useState("");
 
     return (
-        <form>
+        <form className="user-form">
             <input
                 type="text"
                 value={email}
