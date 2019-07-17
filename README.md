@@ -1,5 +1,7 @@
 # Narrem
-A word processor and organization tool designed for writers of all shapes and colors. Built on Django with React. Work in progress!
+A word processor and organization tool designed for writers of all shapes and colors. Built on Django with React.
+
+Work in progress!
 
 ## Overview
 ![fonts](https://media.giphy.com/media/QhWkFn3BO3FrG/giphy.gif)
