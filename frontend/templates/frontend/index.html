@@ -1,3 +1,4 @@
+<!-- {% load static %} -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Narrem</title>
-    {% load static %}
     <script>
         window.logo = "{% static 'frontend/media/logo.png' %}";
         window.copyPhoto1 = "{% static 'frontend/media/copy-photo1.png' %}";
     </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alegreya+Sans:300,700|Literata&display=swap">
     <link rel="stylesheet" href="{% static 'frontend/css/application.css' %}">
     <link rel="stylesheet" href="{% static 'frontend/css/compile.css' %}">

@@ -1,5 +1,5 @@
 .user-box {
-    width: 300px;
+    width: 600px;
     margin: 50px auto;
     display: flex;
     flex-direction: column;
@@ -14,4 +14,8 @@
 .user-form {
     display: flex;
     flex-direction: column;
+}
+
+.form-button {
+    
 }
