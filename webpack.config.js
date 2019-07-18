@@ -5,7 +5,7 @@ module.exports = {
     entry: './frontend/src/narrem.jsx',
     output: {
         path: path.resolve(__dirname, './frontend/static/frontend/'),
-        filename: 'bundle.[contenthash].js',
+        filename: 'bundle.js',
     },
     resolve: {
         extensions: ['.js', '.jsx', '*']

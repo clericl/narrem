@@ -12,7 +12,7 @@ const Main = props => {
             setRedirect(false);
         };
     })
- 
+
     return (
         <main>
             <section className="front-main-section section1">

@@ -3,8 +3,9 @@
 }
 
 .modal-enter-active {
+    opacity: 1;
     animation-name: fadein;
-    animation-duration: .5s;
+    animation-duration: .3s;
 }
 
 @keyframes fadein {

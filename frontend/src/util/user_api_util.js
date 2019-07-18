@@ -1,12 +1,17 @@
+import Cookies from 'js-cookie';
+
 export const createUser = user => {
-    return $.ajax({
+    return fetch("api/users", {
         method: "POST",
-        url: "api/users",
-        data: {
-            user: {
-            },
+        credentials: "include",
+        mode: "same-origin",
+        headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json",
+            "X-CSRFToken": Cookies.get("csrftoken"),
         },
-    });
+        body: JSON.stringify(user),
+    })
 };
 
 export const editUser = user => {

@@ -1,5 +1,5 @@
 .user-box {
-    width: 600px;
+    width: 400px;
     margin: 50px auto;
     display: flex;
     flex-direction: column;
@@ -9,6 +9,7 @@
     top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
+    background: white;
 }
 
 .user-form {
