@@ -43,8 +43,14 @@ export const fetchUser = userId => dispatch => {
 
 export const createUser = user => dispatch => {
     return UserAPIUtil.createUser(user).then(
-        res => dispatch(receiveCurrentUser(res)),
-        err => dispatch(receiveUserErrors(err.responseJSON))
+        res => {
+            debugger
+            return dispatch(receiveCurrentUser(res))
+        },
+        err => {
+            debugger
+            return dispatch(receiveUserErrors(err.responseJSON))
+        }
     );
 };
 
