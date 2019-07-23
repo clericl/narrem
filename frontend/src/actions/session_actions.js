@@ -33,16 +33,15 @@ export const clearErrors = () => {
 };
 
 export const loginUser = user => dispatch => {
-    return SessionAPIUtil.loginUser(user).then(
-        res => {
-            debugger
-            return dispatch(receiveCurrentUser(res))
-        },
-        err => {
-            debugger
-            return dispatch(receiveSessionErrors(err.responseJSON))
-        }
-    );
+    return SessionAPIUtil.loginUser(user)
+        .then(res => res.json())
+        .then(res => {
+            if (res.errors) {
+                dispatch(receiveSessionErrors(res))
+            } else {
+                dispatch(receiveCurrentUser(res))
+            }
+        });
 };
 
 export const logoutUser = () => dispatch => {

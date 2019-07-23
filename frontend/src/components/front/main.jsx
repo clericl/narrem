@@ -24,7 +24,7 @@ const Main = props => {
                     <p className="text">Practice with flash fiction and peer editing.</p>
                     <br></br>
                     <p className="text">Put your thoughts on the page. Narrem will help with the rest.</p>
-                    <NavButton action={props.openModal} classes="demo-button" text="SIGN UP FOR FREE"/>
+                    <NavButton action={props.openModal} klasses="demo-button" text="SIGN UP FOR FREE"/>
                 </div>
             </section>
         </main>

@@ -1,6 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { createUser } from '../../actions/user_actions';
 
 class Form extends React.Component {
     constructor(props) {
@@ -22,7 +20,7 @@ class Form extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.createUser({
+        this.props.action({
             email: this.state.email,
             password: this.state.password,
         });
@@ -44,17 +42,11 @@ class Form extends React.Component {
                         onChange={e => this.handleChange(e, "password")} />
                 </form>
                 <div className="nav-button" onClick={this.handleSubmit}>
-                    Sign Up
+                    {this.props.text}
                 </div>
             </>
         )
     }
 }
 
-const mdp = dispatch => {
-    return {
-        createUser: user => dispatch(createUser(user)),
-    }
-}
-
-export default connect(null, mdp)(Form);
+export default Form;

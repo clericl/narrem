@@ -1,8 +1,8 @@
 import React from 'react';
 
-const NavButton = ({ action, classes, text }) => {
+const NavButton = ({ action, klasses, text }) => {
     return (
-        <div className={`nav-button ${classes}`} onClick={action}>
+        <div className={`nav-button ${klasses}`} onClick={action}>
             {text}
         </div>
     )

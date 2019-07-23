@@ -1,6 +1,8 @@
 import React from 'react';
 import Logo from '../shared/logo';
 import NavButton from '../shared/nav_button';
+import { connect } from 'react-redux'
+import { openModal } from '../../actions/modal_actions';
 
 const Header = props => {
     return (
@@ -10,12 +12,19 @@ const Header = props => {
                     <Logo />
                 </div>
                 <div className="session-nav">
-                    <NavButton action={() => {console.log("pika pika")}} classes="session-button" text="Sign Up" />
-                    <NavButton action={() => {console.log("pika pika")}} classes="session-button" text="Log In" />
+                    <NavButton action={props.signupModal} klasses="session-button" text="Sign Up" />
+                    <NavButton action={props.signinModal} klasses="session-button" text="Log In" />
                 </div>
             </nav>
         </header>
     )
 }
 
-export default Header;
+const mdp = dispatch => {
+    return {
+        signupModal: () => dispatch(openModal("createUser")),
+        signinModal: () => dispatch(openModal("loginUser")),
+    }
+}
+
+export default connect(null, mdp)(Header);

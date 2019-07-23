@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { closeModal } from '../actions/modal_actions';
-import CreateUserModal from './front/create_user_modal';
-import LoginUserModal from './front/login_user_modal';
+import SignupModal from './front/signup_modal';
+import SigninModal from './front/signin_modal';
 
 class Modal extends React.Component {
     constructor(props) {
@@ -28,10 +28,10 @@ class Modal extends React.Component {
             let component;
             switch (this.props.modal) {
                 case "createUser":
-                    component = <CreateUserModal />;
+                    component = <SignupModal />;
                     break;
                 case "loginUser":
-                    component = <LoginUserModal />;
+                    component = <SigninModal />;
                     break;
                 default:
                     component = null;
