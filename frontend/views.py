@@ -29,7 +29,8 @@ def users(request):
             password=params['password']
         )
         user.save()
-        user_login(request)
+        response = user_login(request)
+        return response
     except IntegrityError:
         response = JsonResponse(
             data={"errors": "Email already in use."},
@@ -38,25 +39,25 @@ def users(request):
         return response
 
 def user_login(request):
-    params = json.loads(request.body)
+    if request.method == "POST":
+        params = json.loads(request.body)
 
-    user = authenticate(
-        email=params['email'],
-        password=params['password']
-    )
-    
-    if user is not None:
-        login(request, user)
-        response = JsonResponse(
-            data={
-                'id': user.id,
-                'email': user.email
-            }
-        ) 
-        return response
-    else:
-        response = JsonResponse(
-            data={"errors": "Cannot find user"},
-            status=422
+        user = authenticate(
+            email=params['email'],
+            password=params['password']
         )
-        return response
+        if user is not None:
+            login(request, user)
+            response = JsonResponse(
+                data={
+                    'id': user.id,
+                    'email': user.email
+                }
+            )
+            return response
+        else:
+            response = JsonResponse(
+                data={"errors": "Cannot find user"},
+                status=422
+            )
+            return response

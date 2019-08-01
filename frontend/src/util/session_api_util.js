@@ -1,11 +1,17 @@
+import Cookies from 'js-cookie';
+
 export const loginUser = user => {
-    return $.ajax({
+    return fetch("api/session", {
         method: "POST",
-        url: "api/session",
-        data: {
-            user
+        credentials: "include",
+        mode: "same-origin",
+        headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json",
+            "X-CSRFToken": Cookies.get("csrftoken"),
         },
-    });
+        body: JSON.stringify(user),
+    })
 };
 
 export const logoutUser = () => {

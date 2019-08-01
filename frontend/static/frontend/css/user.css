@@ -1,5 +1,6 @@
 .user-box {
     width: 400px;
+    height: 300px;
     margin: 50px auto;
     display: flex;
     flex-direction: column;
@@ -15,8 +16,27 @@
 .user-form {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    height: 85px;
+    margin: 25px 0;
+}
+
+.user-form-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-form-input {
+    width: 250px;
+    height: 25px;
+    padding: 5px;
 }
 
 .form-button {
-    
+    width: 264px;
+    height: 35px;
+    border-radius: 4px;
+    border: 1px solid black;
 }

@@ -28,23 +28,25 @@ class Form extends React.Component {
 
     render() {
         return (
-            <>
+            <div className="user-form-box">
                 <form className="user-form">
                     <input
                         type="text"
                         value={this.state.email}
                         placeholder="Email address"
+                        className="user-form-input"
                         onChange={e => this.handleChange(e, "email")} />
                     <input
                         type="password"
                         value={this.state.password}
                         placeholder = "Password"
+                        className="user-form-input"
                         onChange={e => this.handleChange(e, "password")} />
                 </form>
-                <div className="nav-button" onClick={this.handleSubmit}>
+                <div className="nav-button form-button" onClick={this.handleSubmit}>
                     {this.props.text}
                 </div>
-            </>
+            </div>
         )
     }
 }

@@ -1,4 +1,5 @@
 import { RECEIVE_USER, RECEIVE_USERS } from '../actions/user_actions';
+import { RECEIVE_CURRENT_USER } from '../actions/session_actions';
 import { merge } from 'lodash';
 
 const usersReducer = (state = {}, action) => {
@@ -7,6 +8,11 @@ const usersReducer = (state = {}, action) => {
 
     switch (action.type) {
         case RECEIVE_USER:
+            newState = merge({}, state, action.user);
+            delete newState[Object.keys(action.user)[0]];
+            newState[Object.keys(action.user)[0]] = Object.values(action.user)[0];
+            return newState;
+        case RECEIVE_CURRENT_USER:
             newState = merge({}, state, action.user);
             delete newState[Object.keys(action.user)[0]];
             newState[Object.keys(action.user)[0]] = Object.values(action.user)[0];
