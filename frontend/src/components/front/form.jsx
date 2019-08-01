@@ -1,4 +1,7 @@
 import React from 'react';
+import Logo from '../shared/logo';
+import { connect } from 'react-redux';
+import { closeModal } from '../../actions/modal_actions';
 
 class Form extends React.Component {
     constructor(props) {
@@ -23,12 +26,20 @@ class Form extends React.Component {
         this.props.action({
             email: this.state.email,
             password: this.state.password,
-        });
+        }).then(res => {
+            if (this.props.currentUser) {
+                this.props.closeModal();
+            }
+        })
     }
 
     render() {
         return (
             <div className="user-form-box">
+                <Logo />
+                <div className="title" id="byline">
+                    {this.props.text === "Sign Up" ? "Let's get started." : "Welcome back!"}
+                </div>
                 <form className="user-form">
                     <input
                         type="text"
@@ -42,13 +53,27 @@ class Form extends React.Component {
                         placeholder = "Password"
                         className="user-form-input"
                         onChange={e => this.handleChange(e, "password")} />
+                    <input
+                        type="submit"
+                        className="nav-button form-button"
+                        onClick={this.handleSubmit}
+                        value={this.props.text} />
                 </form>
-                <div className="nav-button form-button" onClick={this.handleSubmit}>
-                    {this.props.text}
-                </div>
             </div>
         )
     }
 }
 
-export default Form;
+const msp = state => {
+    return {
+        currentUser: state.session.currentUser
+    };
+};
+
+const mdp = dispatch => {
+    return {
+        closeModal: () => dispatch(closeModal()),
+    };
+};
+
+export default connect(msp, mdp)(Form);

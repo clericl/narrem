@@ -55,3 +55,12 @@
     height: 50px;
     width: auto;
 }
+
+.text-logo {
+    font-size: 24px;
+}
+
+#byline {
+    font-size: 18px;
+    text-shadow: none;
+}

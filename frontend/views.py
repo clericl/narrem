@@ -57,7 +57,7 @@ def user_login(request):
             return response
         else:
             response = JsonResponse(
-                data={"errors": "Cannot find user"},
+                data={"errors": "Incorrect username or password."},
                 status=422
             )
             return response
