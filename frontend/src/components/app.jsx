@@ -1,24 +1,43 @@
 import React from 'react';
 import Modal from './modal';
 import FrontMain from './front/main';
+import { connect } from 'react-redux';
 import FrontHeader from './front/header';
-import { ProtectedRoute, AuthRoute } from '../util/route_util';
-import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
+import Sidebar from './main/sidebar/sidebar';
+import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
 
 const App = props => {
-    return (
-        <>
-            <Modal />
+    if (props.currentUser) {
+        return (
+            <>
+                <Modal />
+    
+                <Switch>
+                    <Route exact path="/" component={Sidebar} />
+                </Switch>
+            </>
+        )
+    } else {
+        return (
+            <>
+                <Modal />
 
-            <Switch>
-                <AuthRoute exact path="/" component={FrontHeader} />
-            </Switch>
+                <Switch>
+                    <Route exact path="/" component={FrontHeader} />
+                </Switch>
 
-            <Switch>
-                <AuthRoute exact path="/" component={FrontMain} />
-            </Switch>
-        </>
-    )
+                <Switch>
+                    <Route exact path="/" component={FrontMain} />
+                </Switch>
+            </>
+        )
+    }
 }
 
-export default withRouter(App);
+const msp = state => {
+    return {
+        currentUser: state.session.currentUser || null
+    }
+}
+
+export default withRouter(connect(msp, null)(App));

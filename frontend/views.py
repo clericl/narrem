@@ -50,8 +50,10 @@ def user_login(request):
             login(request, user)
             response = JsonResponse(
                 data={
-                    'id': user.id,
-                    'email': user.email
+                    user.id: {
+                        'id': user.id,
+                        'email': user.email
+                    }
                 }
             )
             return response
